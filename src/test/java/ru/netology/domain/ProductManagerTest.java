@@ -72,4 +72,38 @@ public class ProductManagerTest {
         Product[] expected2 = {smartphone2, smartphone3};
         Assertions.assertArrayEquals(expected2, actual2);
     }
+
+    @Test
+    public void shouldEmptyProducts() {
+        manager.findAll();
+
+        Product[] actual = manager.findAll();
+        Product[] expected = {};
+        Assertions.assertArrayEquals(expected, actual);
+    }
+    
+    @Test
+    public void shouldOneProduct() {
+        manager.add(book1);
+
+        manager.removeById(8);
+        manager.findAll();
+
+        Product[] actual = manager.findAll();
+        Product[] expected = {};
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldTwoProducts() {
+        manager.add(book1);
+        manager.add(book2);
+
+        manager.removeById(13);
+        manager.findAll();
+
+        Product[] actual = manager.findAll();
+        Product[] expected = {book1};
+        Assertions.assertArrayEquals(expected, actual);
+    }
 }
