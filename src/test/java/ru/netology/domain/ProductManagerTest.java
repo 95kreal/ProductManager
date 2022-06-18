@@ -16,8 +16,9 @@ public class ProductManagerTest {
     Product smartphone2 = new Smartphone(18, "Galaxy S22 Ultra", 150_000, "SAMSUNG");
     Product smartphone3 = new Smartphone(21, "P50 Pro", 115_000, "HUAWEI");
 
-    ProductRepository repo= new ProductRepository();
+    ProductRepository repo = new ProductRepository();
     ProductManager manager = new ProductManager(repo);
+
     @Test
     public void shouldSearchBy() {
         manager.add(book1);
@@ -81,7 +82,7 @@ public class ProductManagerTest {
         Product[] expected = {};
         Assertions.assertArrayEquals(expected, actual);
     }
-    
+
     @Test
     public void shouldOneProduct() {
         manager.add(book1);
